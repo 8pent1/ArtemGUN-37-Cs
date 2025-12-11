@@ -16,78 +16,83 @@
 //OR - ИЛИ ||
 //NOT - НЕ  !
 //XOR - Исключает ИЛИ  ^
-
-class Program
+﻿namespace HW
 {
-
-    static void Main(string[] args)
+    internal class Program
     {
-
-        Console.WriteLine("Введите первое число");
-
-        if (!Int32.TryParse(Console.ReadLine(), out var pervoe))
+        static void Main(string[] args)
         {
-            Console.WriteLine("Не число");
-            return;
+
+            int i = 0;
+            int[] arrayFibonachi = new[] { 0, 1, 1, 2, 3, 5, 8, 13 };
+            string[] month = new[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            int[][] arraymatrica = new[]
+            {
+                new[] { 2, 3, 4 },
+                new[] { 4, 9, 16 },
+                new[] { 8, 27, 64}
+            };
+            Console.WriteLine("Задание 3");
+            for (i = 0; i < 3; i++)
+            {
+                arraymatrica[0][i] = i;
+                Console.Write("{0}\t", arraymatrica[1][i]);
+            }
+            for (i = 0; i < 3; i++)
+            {
+                arraymatrica[1][i] = i;
+                Console.Write("{0}\t", arraymatrica[1][i]);
+            }
+            for (i = 0; i < 3; i++)
+            {
+                arraymatrica[2][i] = i;
+                Console.Write("{0}\t", arraymatrica[1][i]);
+            }
+
+
+            int[][] myArr = new int[4][];
+            myArr[0] = new int[5] { 1, 2, 3, 4, 5 };
+            myArr[1] = new int[2] { (int)2.718, (int)3.141 };
+            myArr[2] = new int[4] { 1, 10, 100, 1000 };
+            Console.WriteLine();
+            Console.WriteLine("Задание 4");
+            for (; i < 5; i++)
+            {
+                myArr[0][i] = i;
+                Console.Write("{0}\t", myArr[0][i]);
+            }
+
+            Console.WriteLine();
+            for (i = 0; i < 2; i++)
+            {
+                myArr[1][i] = i;
+                Console.Write("{0}\t", myArr[1][i]);
+            }
+
+            Console.WriteLine();
+            for (i = 0; i < 4; i++)
+            {
+                myArr[2][i] = i;
+                Console.Write("{0}\t", myArr[2][i]);
+            }
+
+            int[] array = { 1, 2, 3, 4, 5 };
+            int[] array2 = { 7, 8, 9, 10, 11, 12, 13 };
+            Array.Copy(array, array2, 3);
+            var l = 0;
+            Console.WriteLine();
+            Console.WriteLine("Задание 5");
+            for (l = 0; l < array2.Length; l++)
+            {
+                Console.WriteLine(array2[l]);
+            }
+            string[] sample = { "", "" };
+            Array.Resize(ref array, array2.Length * 2);
+            Console.WriteLine("Задание 6");
+            for (l = 0; l < array.Length; l++)
+            {
+                Console.WriteLine(array[l]);
+            }
         }
-
-        Console.WriteLine("Введите второе число");
-
-        if (!Int32.TryParse(Console.ReadLine(), out var vtoroe))
-        {
-            Console.WriteLine("Не число");
-            return;
-        }
-
-        Console.WriteLine("Введите знак");
-
-        var s = Console.ReadLine();
-        var BoolVar = true;
-        
-        if (s.Length == 0 || s.Length > 1 && !BoolVar)
-        {
-            Console.WriteLine("Неправильный знак");
-            return;
-        }
-
-
-        switch (s[0])
-        {
-            case '+':
-                Console.WriteLine("Сложение {0} + {1} = {2}:", pervoe, vtoroe, pervoe + vtoroe);
-                break;
-            case '-':
-                Console.WriteLine("Вычитание {0} - {1} = {2}:", pervoe, vtoroe, pervoe - vtoroe);
-                    break;
-            case '*':
-                Console.WriteLine("Умножение {0} * {1} = {2}:", pervoe, vtoroe, pervoe * vtoroe);
-                break;
-            case '/':
-                if(vtoroe == 0)
-                {
-                    Console.WriteLine("деление на ноль невозможно");
-                    return;
-                }
-                Console.WriteLine("Деление {0} / {1} = {2}:", pervoe, vtoroe, pervoe / vtoroe);
-                break;
-            case '%':
-                Console.WriteLine("Проценты {0} % {1} = {2}:", pervoe, vtoroe, pervoe % vtoroe);
-                break;
-            case '&':
-                Console.WriteLine("Оператор & {0} & {1}, Десятичная форма = {2}: Двоичная форма = {3}: Шестнадцатиричная форма = {4}:", pervoe, vtoroe, Convert.ToString(pervoe & vtoroe, 10), Convert.ToString(pervoe & vtoroe, 2), Convert.ToString(pervoe & vtoroe, 16));
-                break;
-            case '^':
-                Console.WriteLine("Оператор ^ {0} ^ {1}, Десятичная форма = {2}: Двоичная форма = {3}: Шестнадцатиричная форма = {4}:", pervoe, vtoroe, Convert.ToString(pervoe ^ vtoroe, 10), Convert.ToString(pervoe ^ vtoroe, 2), Convert.ToString(pervoe ^ vtoroe, 16)); ;
-                break;
-            case '|':
-                Console.WriteLine("Оператор | {0} | {1}, Десятичная форма = {2}: Двоичная форма = {3}: Шестнадцатиричная форма = {4}:", pervoe, vtoroe, Convert.ToString(pervoe | vtoroe, 10), Convert.ToString(pervoe | vtoroe, 2), Convert.ToString(pervoe | vtoroe, 16));
-                break;
-            default:
-                Console.WriteLine("Неправильный знак");
-                break;
-        }
-
-        
     }
-
 }
