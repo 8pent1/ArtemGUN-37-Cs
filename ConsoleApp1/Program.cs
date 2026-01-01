@@ -16,83 +16,60 @@
 //OR - ИЛИ ||
 //NOT - НЕ  !
 //XOR - Исключает ИЛИ  ^
-﻿namespace HW
+namespace HW
 {
     internal class Program
     {
         static void Main(string[] args)
         {
 
-            int i = 0;
-            int[] arrayFibonachi = new[] { 0, 1, 1, 2, 3, 5, 8, 13 };
-            string[] month = new[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-            int[][] arraymatrica = new[]
+            int fib = 0;
+            int prevfib = 0;
+            Console.WriteLine("Задание 1");
+            for (int newfib = 1; newfib < 89;)
             {
-                new[] { 2, 3, 4 },
-                new[] { 4, 9, 16 },
-                new[] { 8, 27, 64}
-            };
+                prevfib = newfib;
+                newfib = fib + newfib;
+                fib = prevfib;
+                Console.WriteLine(newfib);
+            }
+
+            Console.WriteLine("Задание 2");
+            for (int chislo = 2; chislo < 20;)
+            {
+                chislo = chislo + 2;
+                Console.WriteLine(chislo);
+            }
+
             Console.WriteLine("Задание 3");
-            for (i = 0; i < 3; i++)
+            for (int mnoj = 1; mnoj < 6;)
             {
-                arraymatrica[0][i] = i;
-                Console.Write("{0}\t", arraymatrica[1][i]);
-            }
-            for (i = 0; i < 3; i++)
-            {
-                arraymatrica[1][i] = i;
-                Console.Write("{0}\t", arraymatrica[1][i]);
-            }
-            for (i = 0; i < 3; i++)
-            {
-                arraymatrica[2][i] = i;
-                Console.Write("{0}\t", arraymatrica[1][i]);
+                for(int mnojotely = 1; mnojotely < 6;)
+                {
+                    
+                    Console.Write(" {0} * {1} = {2} ",mnojotely, mnoj ,mnojotely * mnoj);
+                    mnojotely = mnojotely + 1;
+                }
+                Console.WriteLine();
+                mnoj = mnoj + 1;
             }
 
-
-            int[][] myArr = new int[4][];
-            myArr[0] = new int[5] { 1, 2, 3, 4, 5 };
-            myArr[1] = new int[2] { (int)2.718, (int)3.141 };
-            myArr[2] = new int[4] { 1, 10, 100, 1000 };
-            Console.WriteLine();
             Console.WriteLine("Задание 4");
-            for (; i < 5; i++)
+            string login = "";
+            string passwordnot = "";
+            string password = "qwerty";
+            do
             {
-                myArr[0][i] = i;
-                Console.Write("{0}\t", myArr[0][i]);
-            }
-
+                Console.WriteLine();
+                Console.Write("Введите Логин: ");
+                login = Console.ReadLine();
+                Console.WriteLine();
+                Console.Write("Введите Пароль: ");
+                passwordnot = Console.ReadLine();
+            } while (passwordnot != password);
             Console.WriteLine();
-            for (i = 0; i < 2; i++)
-            {
-                myArr[1][i] = i;
-                Console.Write("{0}\t", myArr[1][i]);
-            }
-
-            Console.WriteLine();
-            for (i = 0; i < 4; i++)
-            {
-                myArr[2][i] = i;
-                Console.Write("{0}\t", myArr[2][i]);
-            }
-
-            int[] array = { 1, 2, 3, 4, 5 };
-            int[] array2 = { 7, 8, 9, 10, 11, 12, 13 };
-            Array.Copy(array, array2, 3);
-            var l = 0;
-            Console.WriteLine();
-            Console.WriteLine("Задание 5");
-            for (l = 0; l < array2.Length; l++)
-            {
-                Console.WriteLine(array2[l]);
-            }
-            string[] sample = { "", "" };
-            Array.Resize(ref array, array2.Length * 2);
-            Console.WriteLine("Задание 6");
-            for (l = 0; l < array.Length; l++)
-            {
-                Console.WriteLine(array[l]);
-            }
+            Console.WriteLine("Здравствуйте, {0}!", login);
         }
+           
     }
 }
